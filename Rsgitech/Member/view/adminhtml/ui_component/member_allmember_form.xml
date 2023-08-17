@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">member_allmember_form.allmember_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Member Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Rsgitech\Member\Block\Adminhtml\Allmember\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Rsgitech\Member\Block\Adminhtml\Allmember\Edit\SaveButton"/>
+            <button name="reset" class="Rsgitech\Member\Block\Adminhtml\Allmember\Edit\ResetButton"/>
+            <button name="delete" class="Rsgitech\Member\Block\Adminhtml\Allmember\Edit\DeleteButton"/>
+            <button name="back" class="Rsgitech\Member\Block\Adminhtml\Allmember\Edit\BackButton"/>
+        </buttons>
+        <namespace>member_allmember_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>member_allmember_form.allmember_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="allmember_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="member/allmember/save"/>
+        </settings>
+        <dataProvider class="Rsgitech\Member\Model\Allmember\DataProvider" name="allmember_form_data_source">
+            <settings>
+                <requestFieldName>member_id</requestFieldName>
+                <primaryFieldName>member_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="member_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>member_id</dataScope>
+            </settings>
+        </field>
+        <field name="image" formElement="imageUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <label translate="true">Image</label>
+                <visible>true</visible>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="*/*/imageTempUpload" />
+                        </uploaderConfig>
+                        <allowedExtensions>jpg jpeg png</allowedExtensions>
+                        <maxFileSize>2097152</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+    
+        <field name="name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+
+        <field name="department" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Department</label>
+                <dataScope>department</dataScope>
+            </settings>
+        </field>
+
+        <field name="title" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+            </settings>
+        </field>
+        <field name="quotes" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allmember</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Quotes</label>
+                <dataScope>quotes</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    
+</form>

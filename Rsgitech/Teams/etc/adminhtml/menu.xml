@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+	  <add id="Rsgitech_Teams::rsgitech" title="RSGiTECH" translate="title" module="Rsgitech_Teams" sortOrder="90" dependsOnModule="Rsgitech_Teams" resource="Rsgitech_Teams::rsgitech"/>
+	  <add id="Rsgitech_Teams::teams" title="Teams" translate="title" module="Rsgitech_Teams" parent="Rsgitech_Teams::rsgitech" sortOrder="50" dependsOnModule="Rsgitech_Teams" resource="Rsgitech_Teams::teams"/>
+	  <add id="Rsgitech_Teams::teams_allteams" title="All Teams" translate="title" module="Rsgitech_Teams" parent="Rsgitech_Teams::teams" sortOrder="10" dependsOnModule="Rsgitech_Teams" action="teams/allteams" resource="Rsgitech_Teams::teams_allteams"/>
+	  <add id="Rsgitech_Teams::settings" title="Settings" translate="title" module="Rsgitech_Teams" parent="Rsgitech_Teams::rsgitech" sortOrder="50" dependsOnModule="Rsgitech_Teams" resource="Rsgitech_Teams::settings"/>
+	  <add id="Rsgitech_Teams::teams_config" title="Configuration" translate="title" module="Rsgitech_Teams" parent="Rsgitech_Teams::settings" sortOrder="10" dependsOnModule="Rsgitech_Teams" action="admin/system_config/edit/section/rsgitech_teams" resource="Rsgitech_Teams::teams_config"/>
+	</menu>
+</config>
+  

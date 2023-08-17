@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">teams_allteams_form.allteams_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Teams Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Rsgitech\Teams\Block\Adminhtml\Allteams\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Rsgitech\Teams\Block\Adminhtml\Allteams\Edit\SaveButton"/>
+            <button name="reset" class="Rsgitech\Teams\Block\Adminhtml\Allteams\Edit\ResetButton"/>
+            <button name="delete" class="Rsgitech\Teams\Block\Adminhtml\Allteams\Edit\DeleteButton"/>
+            <button name="back" class="Rsgitech\Teams\Block\Adminhtml\Allteams\Edit\BackButton"/>
+        </buttons>
+        <namespace>teams_allteams_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>teams_allteams_form.allteams_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="allteams_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="teams/allteams/save"/>
+        </settings>
+        <dataProvider class="Rsgitech\Teams\Model\Allteams\DataProvider" name="allteams_form_data_source">
+            <settings>
+                <requestFieldName>teams_id</requestFieldName>
+                <primaryFieldName>teams_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="teams_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allteams</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>teams_id</dataScope>
+            </settings>
+        </field>
+        <field name="department_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allteams</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Teams Title</label>
+                <dataScope>department_name</dataScope>
+            </settings>
+        </field>
+        <field name="created_by" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allteams</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Created By</label>
+                <dataScope>created_by</dataScope>
+            </settings>
+        </field>
+        <field name="updated_by" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">allteams</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Updated By</label>
+                <dataScope>updated_by</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    
+</form>
